@@ -1,0 +1,27 @@
+table{
+    margin: 0 auto;
+    border-top: solid 1px;
+    border-spacing: 3px;
+    padding: 20px;
+    position: relative;
+    top: 20px;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+tr{
+    border-top: solid 1px;
+    border-spacing: 3px;
+}
+th{
+    width: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: rgb(190, 167, 167);
+}
+table tr:nth-child(odd){
+    background-color:whitesmoke;
+}
+table tr:nth-child(even){
+    background-color:white;
+}
