@@ -9,6 +9,7 @@ import total from '@/components/Total'
 import guestProfile from '@/components/guestInterface'
 import Bill from '@/components/Bill'
 import seat from '@/components/Seat'
+import socket from '@/components/socket'
 
 Vue.use(Router);
 Vue.use(VueCookies);
@@ -60,6 +61,11 @@ const router = new Router({
       path: '/seat',
       name: 'seat',
       component: seat
+    },
+    {
+      path: '/socket',
+      name: 'socket',
+      component: socket
     }
   ]
 })

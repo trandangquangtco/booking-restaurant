@@ -75,7 +75,7 @@ export default {
         .post("http://localhost:3000/book/order", { name,amount,time,pos,gend,date,food,idea,ads,seat })
         .then(response => {
             console.log(response.data);
-            this.$router.push('/')
+            this.$router.push('/guestlogin')
         })
         .catch(function(error) {
           // handle error
