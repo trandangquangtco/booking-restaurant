@@ -9,7 +9,6 @@ export default new Vuex.Store({
   },
   mutations: {
     book(state,payload){
-    
       state.result.push(payload)
     }
   },

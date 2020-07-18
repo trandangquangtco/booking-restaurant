@@ -1,32 +1,46 @@
 <template>
   <div class="contain">
     <form class="login">
-      <h2>Login</h2>
+      <h2><span>Login</span><span> | </span><span class="create">Signup</span></h2>
+      <div class="hide">
       <p>Email:</p>
       <input type="text" placeholder="Nhập Email" v-model="login.email" />
       <p>Password:</p>
-      <input type="text" placeholder="Nhập Password" v-model="login.password" />
-      <br><br>
+      <input type="password" placeholder="Nhập Password" v-model="login.password" />
+      <br>
+      <br>
       <button type="button" class="signin" @click="guestLogin">Đăng nhập</button>
+      </div>
     </form>
-    <!-- <form class="signup">
+    <form class="signup">
       <p>Name:</p>
-      <input type="text" v-model="signup.name" />
+      <input type="text" placeholder="Nhập Tên" v-model="signup.name" />
       <p>Email:</p>
-      <input type="text" v-model="signup.email" />
+      <input type="text" placeholder="Nhập Email" v-model="signup.email" />
       <p>Password:</p>
-      <input type="text" v-model="signup.password" />
+      <input type="text" placeholder="Nhập Password" v-model="signup.password" />
       <p>Birth:</p>
       <input type="Date" class="birth" v-model="signup.birth" />
       <br><br>
-      <button class="btn btn-primary signup" type="button" @click="guestSignup">Đăng kí</button>
-    </form> -->
+      <button class="btnsignup" type="button" @click="guestSignup">Đăng kí</button>
+    </form>
    </div>
 </template>
 
 <script>
 import axios from "axios";
 export default {
+   name:'guestlogin',
+   mounted() {
+      $('.create').click(function(){
+         $('.signup').css('display','unset')
+         $('.hide').hide()
+      })
+      $('.login span:first-child').click(()=>{
+         $('.hide').show()
+         $('.signup').hide()
+      })
+   },
    data() {
     return {
       login: { email: "", password: "" },

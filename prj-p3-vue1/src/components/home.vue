@@ -1,13 +1,14 @@
 <template>
   <div class="contain">
-    
+    <p>day la home</p>
   </div>
 </template>
 
 <script>
 export default {
+  name:'home',
   methods: {
-    
+   
   },
 }
 </script>

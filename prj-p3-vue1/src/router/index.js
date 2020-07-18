@@ -4,12 +4,13 @@ import VueCookies from 'vue-cookies';
 import home from '@/components/home'
 import admin from '@/components/Admin'
 import order from '@/components/Order'
-import guestlogin from '@/components/Guestlogin'
 import total from '@/components/Total'
 import guestProfile from '@/components/guestInterface'
 import Bill from '@/components/Bill'
 import seat from '@/components/Seat'
 import socket from '@/components/socket'
+import guestsignup from '../views/guestsignup.vue'
+import guestlogin from '../views/Guestlogin.vue'
 
 Vue.use(Router);
 Vue.use(VueCookies);
@@ -25,11 +26,6 @@ const router = new Router({
       path: '/admin',
       name: 'admin',
       component: admin,
-    },
-    {
-      path: '/guestlogin',
-      name: 'guestlogin',
-      component: guestlogin
     },
     {
       path: '/order',
@@ -66,6 +62,16 @@ const router = new Router({
       path: '/socket',
       name: 'socket',
       component: socket
+    },
+    {
+      path: '/guestsignup',
+      name: 'guestsignup',
+      component: guestsignup
+    },
+    {
+      path: '/guestlogin',
+      name: 'guestlogin',
+      component: guestlogin
     }
   ]
 })
