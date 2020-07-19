@@ -1,6 +1,5 @@
 <template>
    <div>
-      <button @click="clk">Click</button>
       <table>
          <tr>
             <th>#</th>
@@ -8,84 +7,43 @@
          </tr>
          <tr>
             <td>Tên</td>
-            <td></td>
+            <td>{{profile.name}}</td>
          </tr>
          <tr>
             <td>Email</td>
-            <td></td>
+            <td>{{profile.email}}</td>
          </tr>
          <tr>
             <td>Sinh nhật</td>
-            <td></td>
+            <td>{{profile.birth}}</td>
          </tr>
       </table>
    </div>
 </template>
 
 <script>
-const headers = {
-   "token": `${$cookies.get('guesttoken')}`
-}
 import axios from 'axios'
+import { mapState } from "vuex";
 
 export default {
    name: 'guestInterface',
-    data() {
+   data() {
       return {
-         info:[],
-         
+         token:this.$cookies.get('guesttoken'),
+         profile:{}
       }
    },
-   methods: {
-      clk(){
-      var token = $cookies.get('guesttoken')
-      if(token == null){
-         alert('chua dang nhap')
-      }else{
-      axios({
-         method:'get',
-         url: 'http://localhost:3000/guestProfile',
-         headers: {
-            "token": `${$cookies.get('guesttoken')}`
-         }
-      }).then(data => {
-         console.log(data);
+   mounted() {
+      axios.defaults.withCredentials = false;
+      axios.get('http://localhost:3000/guestProfile',{withCredentials: true})
+      .then(response=>{this.profile = response.data;console.log(response.data)})
+      .catch(function(error){
+         console.log(error);
       })
-      // .then(response=>{
-      //    this.info = response.data
-      //    console.log(response);
-      //    console.log(headers);
-      // })
-      // .catch(function(error) {
-      //   // handle error
-      //   console.log(error);
-      // })
-      // .finally(function() {
-      //   // always executed
-      // });
-      }
-      }
    },
-   // mounted() {
-   //    var token = $cookies.get('guesttoken')
-   //    if(token == null){
-   //       alert('chua dang nhap')
-   //    }else{
-   //    axios
-   //    .get("http://localhost:3000/guestProfile",console.log(token))
-   //    .then(response=>{
-   //       this.info = response.data
-   //       console.log(response);
-   //    })
-   //    .catch(function(error) {
-   //      // handle error
-   //      console.log(error);
-   //    })
-   //    .finally(function() {
-   //      // always executed
-   //    });
-   //    }
-   // },
+   // computed: mapState(
+   //    ['profile']
+   // )
 }
 </script>
 

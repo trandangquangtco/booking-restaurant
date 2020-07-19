@@ -29,6 +29,7 @@
 
 <script>
 import axios from "axios";
+
 export default {
    name:'guestlogin',
    mounted() {
@@ -57,18 +58,14 @@ export default {
             if(response.data.error==false){
                alert('dang nhap lai')
             }else{
-               $cookies.set('guesttoken',response.data.token);
-               console.log(response.data.token);
+               let token = this.$cookies.set('guesttoken',response.data.token);
+               // this.$store.dispatch('loadProfile',token)
                this.$router.push('/guestProfile')
             }
          })
          .catch(function(error) {
-         // handle error
          console.log(error);
          })
-         .finally(function() {
-         // always executed
-         });
       },
       guestSignup(){
          let name = this.signup.name

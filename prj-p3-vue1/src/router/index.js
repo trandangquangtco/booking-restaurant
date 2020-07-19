@@ -76,14 +76,14 @@ const router = new Router({
   ]
 })
 
-router.beforeEach((to, from, next) =>{
-    if(to.name == 'guestProfile' && Vue.$cookies.get('guesttoken')==null ){
-      alert('ban phai dang nhap')
-      next({path:'/guestlogin'})
-    }else{
-      next()
-    }
-});
+// router.beforeEach((to, from, next) =>{
+//     if(to.name == 'guestProfile' && Vue.$cookies.get('guesttoken')==null ){
+//       alert('ban phai dang nhap')
+//       next({path:'/guestlogin'})
+//     }else{
+//       next()
+//     }
+// });
 
 router.beforeEach((to, from, next) => {
     if(to.name=='total'&& Vue.$cookies.get('token')==null){
