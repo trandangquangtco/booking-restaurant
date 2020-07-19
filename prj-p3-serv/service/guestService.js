@@ -57,6 +57,12 @@ function guestId(id){
     })
 }
 
+function findEmail(email){
+    return guestModel.findOne({
+        email:email
+    })
+}
+
 module.exports = {
     admin,
     signup,
@@ -65,5 +71,6 @@ module.exports = {
     adminLogin,
     guestAll,
     findIdAdmin,
-    guestId
+    guestId,
+    findEmail
 }
