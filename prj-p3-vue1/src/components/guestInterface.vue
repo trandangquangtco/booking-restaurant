@@ -1,6 +1,12 @@
 <template>
-   <div>
-      <table>
+<div class="container-fluid">
+   
+      <div class="topbar">
+         <h2 class="text-center">Welcome to Restaurant</h2>
+      </div>
+      <div class="main row">
+         <div class="side col-2"></div>
+         <table class="table table-hover col-6">
          <tr>
             <th>#</th>
             <th>Thông tin</th>
@@ -17,8 +23,14 @@
             <td>Sinh nhật</td>
             <td>{{profile.birth}}</td>
          </tr>
+         <tr>
+            <td>Lịch sử đặt bàn</td>
+            <td></td>
+         </tr>
       </table>
-   </div>
+      </div>   
+   
+</div>
 </template>
 
 <script>
@@ -40,10 +52,7 @@ export default {
       .catch(function(error){
          console.log(error);
       })
-   },
-   // computed: mapState(
-   //    ['profile']
-   // )
+   }
 }
 </script>
 

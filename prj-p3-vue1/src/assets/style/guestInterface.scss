@@ -1,7 +1,26 @@
+
+.topbar{
+   width: 100%;
+   background-color: seagreen;
+}
+.side{
+   background-color: red;
+   margin-left: 15px;
+   height: 100vh;
+   margin-top: -8px;
+}
+table{
+   margin-left: 15px;
+   margin-top: 10px;
+}
 th{
-    width: 100px;
+   width: 100px;
+   background-color: steelblue;
+}
+td{
+   height: 40px;
 }
 
 table{
-    border-collapse: collapse;
+   border-collapse: collapse;
 }

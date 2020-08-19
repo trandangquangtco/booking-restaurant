@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import VueCookies from 'vue-cookies';
-import home from '@/components/home'
+import home from '../components/home/home.vue'
 import admin from '@/components/Admin'
 import order from '@/components/Order'
 import total from '@/components/Total'
@@ -76,14 +76,14 @@ const router = new Router({
   ]
 })
 
-// router.beforeEach((to, from, next) =>{
-//     if(to.name == 'guestProfile' && Vue.$cookies.get('guesttoken')==null ){
-//       alert('ban phai dang nhap')
-//       next({path:'/guestlogin'})
-//     }else{
-//       next()
-//     }
-// });
+router.beforeEach((to, from, next) =>{
+    if(to.name == 'guestProfile' && Vue.$cookies.get('guesttoken')==null ){
+      alert('ban phai dang nhap')
+      next({path:'/guestlogin'})
+    }else{
+      next()
+    }
+});
 
 router.beforeEach((to, from, next) => {
     if(to.name=='total'&& Vue.$cookies.get('token')==null){
